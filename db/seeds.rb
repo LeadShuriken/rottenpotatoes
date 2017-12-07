@@ -15,7 +15,7 @@ more_movies = [
   {:title => 'Raiders of the Lost Ark', :rating => 'PG',
     :release_date => '12-Jun-1981'}
 ]
- 
+
 more_movies.each do |movie|
   Movie.create!(movie)
 end

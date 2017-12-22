@@ -8,8 +8,15 @@ class MoviesController < ApplicationController
       ordering,@date_header = {:release_date => :asc}, 'hilite'
     end
     @all_ratings = Movie.all_ratings
-    @selected_ratings = params[:ratings].permit! || session[:ratings].permit! || {}
-     
+    
+    if params[:ratings]
+      @selected_ratings = params[:ratings].permit!
+    elsif session[:ratings]
+      @selected_ratings = session[:ratings]
+    else
+      @selected_ratings = {}  
+    end
+
     if @selected_ratings == {}
       @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
     end

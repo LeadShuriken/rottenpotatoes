@@ -33,9 +33,14 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# making your Gemfile safe for Heroku
+ruby '2.3.0'   # just in case - tell Heroku which Ruby version we need
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # make sure sqlite3 gem ONLY occurs inside development & test groups
+  gem 'sqlite3' # use SQLite only in development and testing
 end
 
 group :development do
@@ -45,6 +50,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  # make sure the following gems are in your production group:
+  gem 'pg'              # use PostgreSQL in production (Heroku)
+  gem 'rails_12factor'  # Heroku-specific production settings
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

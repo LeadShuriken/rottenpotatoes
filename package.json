@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "//" : "https://ruby-deianf84396.c9users.io/movies",
+    "//" : "https://f84396-myrottenpotatoes.herokuapp.com/movies",
     "start": "rails server -b 0.0.0.0 -p 8080"
   },
   "dependencies": {}

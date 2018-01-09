@@ -21,9 +21,9 @@ end end
 
 Then /I should see all the movies/ do
   rows = page.all('#movies tr').size - 1
-  assert rows == Movie.count()
+  expect(rows).to eq(Movie.count()) 
 end
  
 Then /(.*) seed movies should exist/ do | n_seeds |
-  assert Movie.count() == n_seeds.to_i
+  expect(n_seeds.to_i).to eq(Movie.count())
 end

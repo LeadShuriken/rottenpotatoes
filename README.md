@@ -4,7 +4,6 @@
 
 My failed attempt at grasping ruby by creating a rotten tomatoes clone for a university project. Disregard the name of my last commit. I love all technology, and everything has it's place.
 </br>
-</br>
 
 ## Technologies
 
